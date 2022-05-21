@@ -1,0 +1,63 @@
+
+public class Solution {
+
+    public static void spiralPrint(int a[][]){
+        //Your code goes here
+        
+        int er=a.length;
+        int i, sr = 0, sc = 0;
+
+        /*  
+        sr - starting row index
+        er - ending row index
+        sc - starting column index
+        ec - ending column index
+        i - iterator
+        */
+        if(er==0)
+        {
+            System.out.println(" ");    
+        }
+        else
+        {
+            int ec=a[0].length;
+
+            while (sr < er && sc < ec) 
+            {
+                // Print the first row from the remaining rows
+                for (i = sc; i < ec; ++i) 
+                {
+                    System.out.print(a[sr][i] + " ");
+                }
+                sr++;
+
+                // Print the last column from the remaining columns
+                for (i = sr; i < er; ++i) 
+                {
+                    System.out.print(a[i][ec - 1] + " ");
+                }
+                ec--;
+
+                // Print the last row from the remaining rows */
+                if (sr < er) 
+                {
+                    for (i = ec - 1; i >= sc; --i) 
+                    {
+                        System.out.print(a[er - 1][i] + " ");
+                    }
+                    er--;
+                }
+
+                // Print the first column from the remaining columns
+                if (sc < ec) 
+                {
+                    for (i = er - 1; i >= sr; --i) 
+                    {
+                        System.out.print(a[i][sc] + " ");
+                    }
+                    sc++;
+                }
+            }
+        }
+    }
+}
